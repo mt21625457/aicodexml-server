@@ -1,13 +1,9 @@
 FROM node:20-bookworm-slim as webapp_builder
 
-ARG CLEARML_WEB_GIT_URL=https://github.com/allegroai/clearml-web.git
-
 USER root
 WORKDIR /opt
 
-RUN apt-get update && apt-get install -y git
-RUN git clone ${CLEARML_WEB_GIT_URL} clearml-web
-RUN mv clearml-web /opt/open-webapp
+COPY aicodexml-web /opt/open-webapp
 COPY --chmod=744 docker/build/internal_files/build_webapp.sh /tmp/internal_files/
 RUN /bin/bash -c '/tmp/internal_files/build_webapp.sh'
 
@@ -24,6 +20,10 @@ RUN /bin/bash -c '/tmp/internal_files/final_image_preparation.sh'
 
 COPY --from=webapp_builder /opt/open-webapp/build /usr/share/nginx/html
 COPY --from=webapp_builder /opt/open-webapp/dist/report-widgets /usr/share/nginx/widgets
+RUN if [ -d /usr/share/nginx/html/browser ]; then \
+      cp -a /usr/share/nginx/html/browser/. /usr/share/nginx/html/ && \
+      rm -rf /usr/share/nginx/html/browser; \
+    fi
 
 EXPOSE 8080
 EXPOSE 8008

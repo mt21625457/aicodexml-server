@@ -57,6 +57,15 @@ EOF
 
 	  # Update from env variables
     echo "Updating configuration from env"
+
+    # Friendly aliases for web locale configuration
+    if [[ -n "${CLEARML_WEB_DEFAULT_LANGUAGE}" ]] && [[ -z "${WEBSERVER__defaultLanguage}" ]]; then
+      export WEBSERVER__defaultLanguage="${CLEARML_WEB_DEFAULT_LANGUAGE}"
+    fi
+    if [[ -n "${CLEARML_WEB_SUPPORTED_LANGUAGES}" ]] && [[ -z "${WEBSERVER__supportedLanguages}" ]]; then
+      export WEBSERVER__supportedLanguages="${CLEARML_WEB_SUPPORTED_LANGUAGES}"
+    fi
+
     /opt/clearml/utilities/update_from_env.py \
         --verbose \
         /tmp/configuration.json \

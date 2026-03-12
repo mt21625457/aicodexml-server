@@ -34,6 +34,17 @@ def set_path(p: List[str], obj: dict, v: Any):
         return set_path(rest, obj[key_], v)
 
 
+def normalize_segment(segment: str) -> str:
+    if not segment:
+        return segment
+
+    if "_" in segment:
+        head, *tail = segment.lower().split("_")
+        return head + "".join(part.capitalize() for part in tail)
+
+    return segment[0].lower() + segment[1:]
+
+
 if __name__ == '__main__':
     parser = ArgumentParser(description=__doc__)
     parser.add_argument("input_file", type=FileType(), help="Input JSON file")
@@ -75,7 +86,7 @@ if __name__ == '__main__':
     prefix = args.prefix + args.sep
 
     env_vars = {
-        k.lstrip(prefix): parse_value(k, v) if args.parse_env else v
+        k[len(prefix):]: parse_value(k, v) if args.parse_env else v
         for k, v in environ.items() if k.startswith(prefix)
     }
 
@@ -91,7 +102,7 @@ if __name__ == '__main__':
                 print(f"Replacing {path}={value} with {replace}")
 
     for k, v in env_vars.items():
-        path = k.split(args.sep)
+        path = [normalize_segment(part) for part in k.split(args.sep)]
         try:
             set_path(path, data, v)
         except PathConflictError as ex:

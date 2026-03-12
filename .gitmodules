@@ -1,3 +1,3 @@
-[submodule "clearml-web"]
+[submodule "aicodexml-web"]
 	path = aicodexml-web
 	url = https://github.com/mt21625457/aicodexml-web.git
