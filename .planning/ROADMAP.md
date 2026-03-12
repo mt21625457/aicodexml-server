@@ -6,7 +6,7 @@ This roadmap retrofits full English and Simplified Chinese support into the exis
 
 ## Phases
 
-- [ ] **Phase 1: I18n Foundation** - Establish one runtime translation architecture, language switching, fallback behavior, and build integration
+- [x] **Phase 1: I18n Foundation** - Establish one runtime translation architecture, language switching, fallback behavior, and build integration (completed 2026-03-12)
 - [ ] **Phase 2: Locale Persistence And Formatting** - Persist locale preference and align date/number formatting with active language
 - [ ] **Phase 3: Shared Shell And Auth Localization** - Localize the highest-leverage shared UI, auth flows, and common interaction surfaces
 - [ ] **Phase 4: Feature Module Localization Sweep** - Translate the current feature pages and route-level product surface
@@ -26,9 +26,9 @@ This roadmap retrofits full English and Simplified Chinese support into the exis
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Integrate translation runtime, catalogs, and app-wide locale service
-- [ ] 01-02: Wire initial language switcher, bootstrap precedence, and fallback behavior
-- [ ] 01-03: Ensure build/package flow includes localized frontend assets from the submodule
+- [x] 01-01: Integrate translation runtime, catalogs, and app-wide locale service
+- [x] 01-02: Wire initial language switcher, bootstrap precedence, and fallback behavior
+- [x] 01-03: Ensure build/package flow includes localized frontend assets from the submodule
 
 ### Phase 2: Locale Persistence And Formatting
 **Goal**: Make locale choice stable across sessions and ensure locale-sensitive values follow the active language.
@@ -94,7 +94,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. I18n Foundation | 0/3 | Not started | - |
+| 1. I18n Foundation | 3/3 | Complete | 2026-03-12 |
 | 2. Locale Persistence And Formatting | 0/3 | Not started | - |
 | 3. Shared Shell And Auth Localization | 0/3 | Not started | - |
 | 4. Feature Module Localization Sweep | 0/3 | Not started | - |
