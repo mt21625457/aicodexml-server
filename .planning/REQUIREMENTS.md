@@ -65,25 +65,25 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| I18N-01 | Unmapped | Pending |
-| I18N-02 | Unmapped | Pending |
-| I18N-03 | Unmapped | Pending |
-| PREF-01 | Unmapped | Pending |
-| PREF-02 | Unmapped | Pending |
-| FMT-01 | Unmapped | Pending |
-| FMT-02 | Unmapped | Pending |
-| SHELL-01 | Unmapped | Pending |
-| AUTH-01 | Unmapped | Pending |
-| COMM-01 | Unmapped | Pending |
-| FEAT-01 | Unmapped | Pending |
-| BUILD-01 | Unmapped | Pending |
-| QA-01 | Unmapped | Pending |
+| I18N-01 | Phase 1 | Pending |
+| I18N-02 | Phase 1 | Pending |
+| I18N-03 | Phase 1 | Pending |
+| PREF-01 | Phase 2 | Pending |
+| PREF-02 | Phase 2 | Pending |
+| FMT-01 | Phase 2 | Pending |
+| FMT-02 | Phase 2 | Pending |
+| SHELL-01 | Phase 3 | Pending |
+| AUTH-01 | Phase 3 | Pending |
+| COMM-01 | Phase 3 | Pending |
+| FEAT-01 | Phase 4 | Pending |
+| BUILD-01 | Phase 1 | Pending |
+| QA-01 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 13 total
-- Mapped to phases: 0
-- Unmapped: 13 ⚠️
+- Mapped to phases: 13
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-12*
-*Last updated: 2026-03-12 after initial definition*
+*Last updated: 2026-03-12 after roadmap creation*
