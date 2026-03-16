@@ -1,0 +1,47 @@
+services:
+  apiserver:
+    volumes:
+      - clearml_logs:/var/log/clearml
+      - clearml_config:/opt/clearml/config
+      - clearml_fileserver_data:/mnt/fileserver
+
+  elasticsearch:
+    volumes:
+      - clearml_elastic_data:/usr/share/elasticsearch/data
+      - clearml_elastic_logs:/usr/share/elasticsearch/logs
+
+  fileserver:
+    volumes:
+      - clearml_logs:/var/log/clearml
+      - clearml_fileserver_data:/mnt/fileserver
+      - clearml_config:/opt/clearml/config
+
+  mongo:
+    volumes:
+      - clearml_mongo_db:/data/db
+      - clearml_mongo_configdb:/data/configdb
+
+  redis:
+    volumes:
+      - clearml_redis_data:/data
+
+  async_delete:
+    volumes:
+      - clearml_logs:/var/log/clearml
+      - clearml_config:/opt/clearml/config
+
+  agent-services:
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - clearml_agent_data:/root/.clearml
+
+volumes:
+  clearml_logs:
+  clearml_config:
+  clearml_fileserver_data:
+  clearml_elastic_data:
+  clearml_elastic_logs:
+  clearml_mongo_db:
+  clearml_mongo_configdb:
+  clearml_redis_data:
+  clearml_agent_data:

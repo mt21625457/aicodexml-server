@@ -1,0 +1,44 @@
+services:
+  apiserver:
+    platform: linux/arm64
+    build:
+      context: ..
+      dockerfile: docker/build/Dockerfile
+      args:
+        VERSION: local-arm64
+        BUILD: "1"
+    image: clearml/server:local-arm64
+
+  fileserver:
+    platform: linux/arm64
+    build:
+      context: ..
+      dockerfile: docker/build/Dockerfile
+      args:
+        VERSION: local-arm64
+        BUILD: "1"
+    image: clearml/server:local-arm64
+
+  webserver:
+    platform: linux/arm64
+    build:
+      context: ..
+      dockerfile: docker/build/Dockerfile
+      args:
+        VERSION: local-arm64
+        BUILD: "1"
+    image: clearml/server:local-arm64
+
+  async_delete:
+    platform: linux/arm64
+    build:
+      context: ..
+      dockerfile: docker/build/Dockerfile
+      args:
+        VERSION: local-arm64
+        BUILD: "1"
+    image: clearml/server:local-arm64
+
+  agent-services:
+    profiles:
+      - agent-services
